@@ -36,18 +36,45 @@ module Vocalware
       :port     => nil
     }
 
-    def initialize(attributes = {})
-      DEFAULT_ATTRS.merge(attributes).each do |attr_name, value|
+    def initialize(attrs = {})
+      DEFAULT_ATTRS.merge(attrs).each do |attr_name, value|
         send("#{attr_name}=", value)
       end
 
       validate!
+
+      @http_client = Faraday.new
     end
 
-    def build_request(text, opts = {})
+    def build_url(text, opts = {})
       attrs = to_hash.merge(opts)
       attrs[:text] = text
-      Request.new(attrs).build_url
+      Request.new(attrs).to_url
+    end
+
+    def read(text, opts = {})
+      url = build_url(text, opts)
+      send_request(url)
+    end
+
+    def send_request(url)
+      response = @http_client.get(url)
+
+      # If response has other status than success
+      unless response.status.between?(200, 299)
+        raise RequestError.from_url_and_response(url, response, "Unexpected response status")
+      end
+
+      # In case of error Vocalware still returns 200 status, but with error
+      # message in response body, instead of audio data.
+      case response.headers['Content-Type']
+      when 'audio/mpeg', 'application/x-shockwave-flash'
+        return response.body
+      else
+        raise(RequestError, response.body)
+      end
+    rescue SocketError => err
+      raise RequestError.from_url(url, err.message)
     end
 
     def validate!
@@ -56,6 +83,7 @@ module Vocalware
       raise(Error, 'voice is missing')         unless voice
       raise(Error, 'voice must be a Vocalware::Voice') unless voice.is_a?(Voice)
     end
+    private :validate!
 
     def to_hash
       { :host          => host,
@@ -68,5 +96,6 @@ module Vocalware
         :voice         => voice,
         :ext           => ext }
     end
+    private :to_hash
   end
 end

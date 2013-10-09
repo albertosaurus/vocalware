@@ -8,14 +8,13 @@ module Vocalware
     # @param attrs [Hash<Symbol, Object>]
     def initialize(attrs)
       @attrs = attrs
+      validate!
     end
 
     # Build a query as a URL with GET parameters.
     #
     # @return [String]
-    def build_url
-      validate!
-
+    def to_url
       url = "#{@attrs[:protocol]}://#{@attrs[:host]}"
       url << ":#{@attrs[:port]}" if @attrs[:port]
       url << "#{@attrs[:path]}?"
@@ -29,7 +28,7 @@ module Vocalware
     # @return [void]
     def validate!
       REQUIRED_PARAMETERS.each do |name|
-        raise(RequestError, "Parameter #{name} is required") if params[name].empty?
+        raise(BuildRequestError, "Parameter #{name} is required") if params[name].empty?
       end
     end
     private :validate!
