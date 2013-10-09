@@ -1,5 +1,7 @@
 source "http://rubygems.org"
 
+gem 'faraday'
+
 group :development, :test do
   gem "rspec", "~> 2.14.1"
   gem "yard", "~> 0.7"
