@@ -1,7 +1,13 @@
 require 'csv'
+require 'digest'
+
+require 'uri'
+require 'cgi'
+
 require 'vocalware/client'
 require 'vocalware/languages'
 require 'vocalware/voice'
+require 'vocalware/request'
 
 
 module Vocalware
@@ -18,6 +24,8 @@ module Vocalware
   class FindVoiceError < Error
   end
 
+  class RequestError < Error
+  end
 end
 
 

@@ -1,5 +1,5 @@
 module Vocalware
-  # Maps language ISO 639-1 to Vocalware language id.
+  # Maps language ISO 639-1 code to Vocalware language id.
   LANGUAGES = {
     # Arabic
     :ar => 27,
