@@ -24,16 +24,20 @@ module Vocalware
     # @attribute protocol [String] whether "http" or "https"
     attr_accessor :protocol
 
-    # @attributes port [Integer]
+    # @attribute port [Integer]
     attr_accessor :port
+
+    # @attribute http_client [Faraday::Connection]
+    attr_accessor :http_client
+
 
     # Default attributes
     DEFAULT_ATTRS = {
-      :ext      => 'mp3',
-      :host     => 'www.vocalware.com',
-      :path     => '/tts/gen.php',
       :protocol => 'http',
-      :port     => nil
+      :host     => 'www.vocalware.com',
+      :port     => nil,
+      :path     => '/tts/gen.php',
+      :ext      => 'mp3'
     }
 
     def initialize(attrs = {})
@@ -41,22 +45,42 @@ module Vocalware
         send("#{attr_name}=", value)
       end
 
+      @http_client ||= Faraday.new
       validate!
-
-      @http_client = Faraday.new
     end
 
+    # Generate speech from passed text.
+    #
+    # @param text [String] text to generate speech
+    # @param opts [Hash<Symbol, Object>] options which override client attributes
+    #   for one particular request.
+    #
+    # @return [String] audio data in format defined by +:ext+ attribute
+    def gen(text, opts = {})
+      url = build_url(text, opts)
+      send_request(url)
+    end
+
+    # Build URL where request will be sent.
+    #
+    # @param text [String] text to generate speech
+    # @param opts [Hash<Symbol, Object>] options which override client attributes
+    #
+    # @return [String] url
     def build_url(text, opts = {})
       attrs = to_hash.merge(opts)
       attrs[:text] = text
       Request.new(attrs).to_url
     end
 
-    def read(text, opts = {})
-      url = build_url(text, opts)
-      send_request(url)
-    end
 
+    # Issue request to the remote service using HTTP client.
+    # Handle potential errors and raise {Vocalware::RequestError} with
+    # request information.
+    #
+    # @param url [String] end point with encoded GET parameters to send request
+    #
+    # @return [String] audio data
     def send_request(url)
       response = @http_client.get(url)
 
@@ -76,7 +100,11 @@ module Vocalware
     rescue SocketError => err
       raise RequestError.from_url(url, err.message)
     end
+    private :send_request
 
+    # Ensure all required attributes are present.
+    #
+    # @return [void]
     def validate!
       raise(Error, 'secret_phrase is missing') unless secret_phrase
       raise(Error, 'api_id is missing')        unless api_id
@@ -85,6 +113,9 @@ module Vocalware
     end
     private :validate!
 
+    # Represent all client attributes as a hash.
+    #
+    # @return [Hash<Symbol, Object>]
     def to_hash
       { :host          => host,
         :path          => path,
