@@ -44,7 +44,7 @@ one single request:
 
 ```
 voice = Vocalware::Vocalware.find(:lang => :es, :name => 'Juan')
-client.gen('Hola! Que tal estas?', :voice => voice)
+client.gen('Hola! Qué tal estás?', :voice => voice)
 ```
 
 ## Running tests
