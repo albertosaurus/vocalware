@@ -54,7 +54,10 @@ rake spec
 ```
 
 
+## Credits
+
+* [Sergey Potapov](https://github.com/greyblake)
+
 ## Copyright
 
-Copyright (c) 2013 TMX Credit. Author Potapov Sergey. See LICENSE.txt for
-further details.
+Copyright (c) 2013 TMX Credit. See LICENSE.txt for further details.

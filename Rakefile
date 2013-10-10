@@ -14,7 +14,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   gem.name        = "vocalware"
-  gem.homepage    = "http://github.com/greyblake/vocalware"
+  gem.homepage    = "http://github.com/TMXCredit/vocalware"
   gem.license     = "MIT"
   gem.summary     = "Ruby client for Vocalware REST API"
   gem.description = "Ruby client for Vocalware REST API"
