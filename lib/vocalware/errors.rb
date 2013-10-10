@@ -19,27 +19,18 @@ module Vocalware
     #
     # @return [Vocalware::RequestError]
     def self.from_url(url, message)
-      new(message).tap { |err| err.url = url }
+      message << "\nREQUEST URL: #{url}"
+      new(message)
     end
 
     # Create instance with request URL, response and error message.
     #
     # @return [Vocalware::RequestError]
     def self.from_url_and_response(url, response, message)
-      from_url(url, message).tap { |err| err.response = response }
-    end
-
-    # Error message with info about request URL and response.
-    #
-    # @return [String]
-    def message
-      msg = super
-      msg << "\nREQUEST URL: #{url}" if url
-      if response
-        msg << "\nRESPONSE STATUS: #{response.status}"
-        msg << "\nRESPONSE BODY: #{response.body}"
-      end
-      msg
+      message << "\nREQUEST URL: #{url}"
+      message << "\nRESPONSE STATUS: #{response.status}"
+      message << "\nRESPONSE BODY: #{response.body}"
+      new(message)
     end
   end
 

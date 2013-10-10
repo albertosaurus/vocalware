@@ -52,7 +52,6 @@ module Vocalware
     DEFAULT_ATTRS = {
       :protocol => 'http',
       :host     => 'www.vocalware.com',
-      :port     => nil,
       :path     => '/tts/gen.php',
       :ext      => 'mp3'
     }
@@ -126,6 +125,7 @@ module Vocalware
     def validate!
       raise(Error, 'secret_phrase is missing') unless secret_phrase
       raise(Error, 'api_id is missing')        unless api_id
+      raise(Error, 'account_id is missing')    unless account_id
       raise(Error, 'voice is missing')         unless voice
       raise(Error, 'voice must be a Vocalware::Voice') unless voice.is_a?(Voice)
     end
