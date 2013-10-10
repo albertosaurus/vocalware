@@ -39,12 +39,12 @@ File.binwrite('./cure.mp3', audio_data)
 
 ### Override attributes for a single request
 
-Lets say you need to say few words in Spanish, you can override `:voice` attribute for
+If you need to say few words in Spanish, you can override `:voice` attribute for
 one single request:
 
 ```
 voice = Vocalware::Vocalware.find(:lang => :es, :name => 'Juan')
-client.gen('Hola! Que tal estas?')
+client.gen('Hola! Que tal estas?', :voice => voice)
 ```
 
 ## Running tests
@@ -58,4 +58,3 @@ rake spec
 
 Copyright (c) 2013 TMX Credit. Author Potapov Sergey. See LICENSE.txt for
 further details.
-
