@@ -13,15 +13,14 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "vocalware"
-  gem.homepage = "http://github.com/greyblake/vocalware"
-  gem.license = "MIT"
-  gem.summary = %Q{Client for Vocalware REST API}
-  gem.description = %Q{Client for Vocalware REST API}
-  gem.email = "blake131313@gmail.com"
-  gem.authors = ["Potapov Sergey"]
-  # dependencies defined in Gemfile
+  gem.name        = "vocalware"
+  gem.homepage    = "http://github.com/greyblake/vocalware"
+  gem.license     = "MIT"
+  gem.summary     = "Ruby client for Vocalware REST API"
+  gem.description = "Ruby client for Vocalware REST API"
+  gem.authors     = ['TMX Credit'             , 'Potapov Sergey']
+  gem.email       = ['rubygems@tmxcredit.com' , 'blake131313@gmail.com']
+  gem.files       = Dir["lib/**/*", 'data/**/*', 'README.markdown', 'LICENSE.txt']
 end
 Jeweler::RubygemsDotOrgTasks.new
 

@@ -30,13 +30,28 @@ client = Vocalware::Client.new(
   )
 ```
 
-Generate speech:
+Generate a speech:
 
 ```ruby
 audio_data = client.gen('Say hello on the night like this!')
 File.binwrite('./cure.mp3', audio_data)
 ```
 
+### Override attributes for a single request
+
+Lets say you need to say few words in Spanish, you can override `:voice` attribute for
+one single request:
+
+```
+voice = Vocalware::Vocalware.find(:lang => :es, :name => 'Juan')
+client.gen('Hola! Que tal estas?')
+```
+
+## Running tests
+
+```sh
+rake spec
+```
 
 
 ## Copyright
