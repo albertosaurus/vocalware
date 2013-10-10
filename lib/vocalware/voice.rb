@@ -1,4 +1,11 @@
 module Vocalware
+  # Voice encapsulates voice parameters like +engine_id+, +voice_id+, +lang_id+
+  # etc. And provides class method to look up voice by parameters.
+  #
+  # @example
+  #   # Find a voice with name Juan. Exception will be raise if the voice with
+  #   # such name is not unique. As well as if the voice not found.
+  #   voice = Voice.find(:name => 'Juan')
   class Voice
     # @attr_reader engine_id [Integer, String] engine id which is used to generate speech
     attr_reader :engine_id
@@ -36,7 +43,7 @@ module Vocalware
     def self.find(attrs)
       voices = all.select {|voice| voice.match?(attrs) }
 
-      raise(FindVoiceError, "No voice found using #{attrs.inspect}")     if voices.empty?
+      raise(FindVoiceError, "No voice found using #{attrs.inspect}")          if voices.empty?
       raise(FindVoiceError, "More than 1 voice found using #{attrs.inspect}") if voices.size > 1
 
       voices.first

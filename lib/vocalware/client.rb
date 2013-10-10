@@ -1,4 +1,21 @@
 module Vocalware
+  # Vocalware client, which uses Vocalware's REST API to generate speech.
+  #
+  # @example
+  #   # Look up voice
+  #   voice = Vocalware::Voice.find(:lang => :en, :name => 'Kate')
+  #
+  #   # Initialize client
+  #   client =
+  #     Vocalware::Client.new(
+  #       :secret_phrase => SECRET_PHRASE,
+  #       :api_id        => API_ID,
+  #       :account_id    => ACCOUNT_ID,
+  #       :voice         => voice
+  #     )
+  #
+  #   # Generate mp3
+  #   client.gen("I love ruby!")  # => mp3 audio as binary string
   class Client
     # @attribute account_id [Integer, String] account id (ACC)
     attr_accessor :account_id
@@ -40,6 +57,7 @@ module Vocalware
       :ext      => 'mp3'
     }
 
+    # @param attrs [Hash<Symbol, Object>] client attributes
     def initialize(attrs = {})
       DEFAULT_ATTRS.merge(attrs).each do |attr_name, value|
         send("#{attr_name}=", value)
