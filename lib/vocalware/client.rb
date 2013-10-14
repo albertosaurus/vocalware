@@ -86,7 +86,7 @@ module Vocalware
     # @return [String] url
     def build_url(text, opts = {})
       attrs = to_hash.merge(opts)
-      attrs[:text] = text
+      attrs[:text] = text.strip
       Request.new(attrs).to_url
     end
 
@@ -114,7 +114,7 @@ module Vocalware
       else
         raise(RequestError, response.body)
       end
-    rescue SocketError => err
+    rescue Faraday::Error::ConnectionFailed => err
       raise RequestError.from_url(url, err.message)
     end
     private :send_request
