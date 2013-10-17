@@ -47,4 +47,9 @@ describe 'Generate speech' do
     expect { client.gen('Socket error') }.
       to raise_error(Vocalware::RequestError, /Wrong address/)
   end
+
+  it 'should raise RequestError if text is missing' do
+    expect { client.gen('') }.
+      to raise_error(Vocalware::RequestError, "Vocalware: Parameter TXT is required")
+  end
 end
