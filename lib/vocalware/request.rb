@@ -28,7 +28,9 @@ module Vocalware
     # @return [void]
     def validate!
       REQUIRED_PARAMETERS.each do |name|
-        raise(BuildRequestError, "Parameter #{name} is required") if params[name].empty?
+        if params[name].empty?
+          raise(BuildRequestError, "Vocalware: Parameter #{name} is required")
+        end
       end
     end
     private :validate!

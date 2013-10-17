@@ -112,7 +112,7 @@ module Vocalware
       when 'audio/mpeg', 'application/x-shockwave-flash'
         return response.body
       else
-        raise(RequestError, response.body)
+        raise RequestError.from_url(url, response.body)
       end
     rescue Faraday::Error::ConnectionFailed => err
       raise RequestError.from_url(url, err.message)

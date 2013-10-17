@@ -34,7 +34,7 @@ describe 'Generate speech' do
 
   it 'should raise RequestError if server returns Content-Type = text/html' do
     expect { client.gen("Text error") }.
-      to raise_error(Vocalware::RequestError, 'Error 101')
+      to raise_error(Vocalware::RequestError, /Error 101/)
   end
 
   it 'should raise RequestError if server returns non success status' do
@@ -43,7 +43,7 @@ describe 'Generate speech' do
   end
 
   it 'should raise RequestError if SocketError occurs' do
-    http_client.should_receive(:get).and_raise(SocketError.new('Wrong address'))
+    http_client.should_receive(:get).and_raise(Faraday::Error::ConnectionFailed.new('Wrong address'))
     expect { client.gen('Socket error') }.
       to raise_error(Vocalware::RequestError, /Wrong address/)
   end
