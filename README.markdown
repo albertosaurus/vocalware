@@ -1,10 +1,10 @@
 # Vocalware
 
-Ruby client for [Vocalware](https://www.vocalware.com/) REST API.
+Ruby client for the [Vocalware](https://www.vocalware.com/) REST API.
 
 ## Install
 
-Add to Gemfile:
+Add vocalware to your Gemfile:
 
 ```ruby
 gem 'vocalware'
@@ -14,33 +14,35 @@ Run `bundle install`.
 
 ## Usage
 
-Lookup voice by attributes:
+Lookup a voice by its attributes:
+
 ```ruby
 voice = Vocalware::Voice.find(:lang => :en, :name => 'Kate')
 ```
 As attributes you can also use `engine_id`, `lang_id`, `voice_id`, `gender`.
 
 Initialize a client:
+
 ```ruby
 client = Vocalware::Client.new(
   :secret_phrase => SECRET_PHRASE,
   :api_id        => API_ID,
   :account_id    => ACCOUNT_ID,
   :voice         => voice
-  )
+)
 ```
 
-Generate a speech:
+Generate speech from text:
 
 ```ruby
-audio_data = client.gen('Say hello on the night like this!')
+audio_data = client.gen('Say hello on a night like this!')
 File.binwrite('./cure.mp3', audio_data)
 ```
 
 ### Override attributes for a single request
 
-If you need to say few words in Spanish, you can override `:voice` attribute for
-one single request:
+If you need to say few words in Spanish, you can override the `:voice`
+attribute for one single request:
 
 ```
 voice = Vocalware::Vocalware.find(:lang => :es, :name => 'Juan')
