@@ -1,13 +1,13 @@
 module Vocalware
-  # Bavic Vocalware error.
+  # Basic Vocalware error.
   class Error < StandardError
   end
 
-  # Is raised when no voices are found or found more than one.
+  # Raised when no voices or more than one are found.
   class FindVoiceError < Error
   end
 
-  # Is raised on sending and processing HTTP request to Vocalware service.
+  # Raised on sending and processing HTTP request to Vocalware service.
   class RequestError < Error
     # @attribute url [String] URL where request was sent
     attr_accessor :url
@@ -34,7 +34,7 @@ module Vocalware
     end
   end
 
-  # Is raised when required parameters for request are missing.
+  # Raised when required parameters for request are missing.
   class BuildRequestError < RequestError
   end
 end

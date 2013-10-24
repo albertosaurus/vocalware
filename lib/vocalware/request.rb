@@ -15,11 +15,14 @@ module Vocalware
     #
     # @return [String]
     def to_url
-      url = "#{@attrs[:protocol]}://#{@attrs[:host]}"
-      url << ":#{@attrs[:port]}" if @attrs[:port]
+      port = @attrs[:port]
+      url  = "#{@attrs[:protocol]}://#{@attrs[:host]}"
+      url << ":#{port}" if port
       url << "#{@attrs[:path]}?"
 
-      params_str = params.map {|name, value| "#{CGI.escape(name)}=#{CGI.escape(value)}" }.join('&')
+      params_str = params.map {|name, value|
+                                "#{CGI.escape(name)}=#{CGI.escape(value)}"
+                              }.join('&')
       url << params_str
     end
 
@@ -40,9 +43,10 @@ module Vocalware
     # @return [Hash<String, String>]
     def params
       @params ||= begin
-        { 'EID'      => @attrs[:voice].engine_id.to_s,
-          'LID'      => @attrs[:voice].lang_id.to_s,
-          'VID'      => @attrs[:voice].voice_id.to_s,
+        voice = @attrs[:voice]
+        { 'EID'      => voice.engine_id.to_s,
+          'LID'      => voice.lang_id.to_s,
+          'VID'      => voice.voice_id.to_s,
           'TXT'      => @attrs[:text].to_s,
           'EXT'      => @attrs[:ext].to_s,
           'FX_TYPE'  => @attrs[:fx_type].to_s,
@@ -62,10 +66,11 @@ module Vocalware
     # @return [String] MD5 hex digest
     def checksum
       @checksum ||= begin
-        data = [
-          @attrs[:voice].engine_id.to_s,
-          @attrs[:voice].lang_id.to_s,
-          @attrs[:voice].voice_id.to_s,
+        voice = @attrs[:voice]
+        data  = [
+          voice.engine_id.to_s,
+          voice.lang_id.to_s,
+          voice.voice_id.to_s,
           @attrs[:text].to_s,
           @attrs[:ext].to_s,
           @attrs[:fx_type].to_s,

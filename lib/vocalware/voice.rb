@@ -7,7 +7,8 @@ module Vocalware
   #   # such name is not unique. As well as if the voice not found.
   #   voice = Voice.find(:name => 'Juan')
   class Voice
-    # @attr_reader engine_id [Integer, String] engine id which is used to generate speech
+    # @attr_reader engine_id [Integer, String] engine id which is used to
+    #                                          generate speech
     attr_reader :engine_id
 
     # @attr_reader lang [Symbol, String] language ISO 639-1 code (2 chars)
@@ -16,7 +17,8 @@ module Vocalware
     # @attr_reader name [String] voice name
     attr_reader :name
 
-    # @attr_reader voice_id [Integer, String] unique only in scope of +engine_id+ and +lang+
+    # @attr_reader voice_id [Integer, String] unique only in scope of
+    #                                         +engine_id+ and +lang+
     attr_reader :voice_id
 
     # @attr_reader gender [String] whether "M" or "F"
@@ -43,8 +45,12 @@ module Vocalware
     def self.find(attrs)
       voices = all.select {|voice| voice.match?(attrs) }
 
-      raise(FindVoiceError, "No voice found using #{attrs.inspect}")          if voices.empty?
-      raise(FindVoiceError, "More than 1 voice found using #{attrs.inspect}") if voices.size > 1
+      raise(FindVoiceError,
+            "No voice found using #{attrs.inspect}"
+           ) if voices.empty?
+      raise(FindVoiceError,
+            "More than 1 voice found using #{attrs.inspect}"
+           ) if voices.size > 1
 
       voices.first
     end
@@ -54,11 +60,11 @@ module Vocalware
     # @return [Array<Vocalware::Voice>]
     def self.load_all
       converter = lambda { |str| str ? str.strip! : nil }
-      data = CSV.read(VOICES_CSV_FILE,
-                      :headers           => true,
-                      :skip_blanks       => true,
-                      :converters        => converter,
-                      :header_converters => converter)
+      data      = CSV.read( VOICES_CSV_FILE,
+                            :headers           => true,
+                            :skip_blanks       => true,
+                            :converters        => converter,
+                            :header_converters => converter )
       data.map { |row| Voice.new(row.to_hash) }
     end
     private_class_method :load_all
@@ -69,10 +75,11 @@ module Vocalware
       attributes.each do |attr, value|
         self.instance_variable_set("@#{attr}", value)
       end
-      @lang_id = LANGUAGES[lang.to_sym] || raise(Error, "Unknown lang #{lang.inspect}")
+      @lang_id = LANGUAGES[lang.to_sym] ||
+                 raise(Error, "Unknown lang #{lang.inspect}")
     end
 
-    # Verify does voice match passed attributes.
+    # Verify that the voice matches the passed attributes.
     #
     # @param attributes [Hash]
     #

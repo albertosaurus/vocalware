@@ -69,8 +69,8 @@ module Vocalware
     # Generate speech from passed text.
     #
     # @param text [String] text to generate speech
-    # @param opts [Hash<Symbol, Object>] options which override client attributes
-    #   for one particular request.
+    # @param opts [Hash<Symbol, Object>] options which override client
+    #   attributes for one particular request.
     #
     # @return [String] audio data in format defined by +:ext+ attribute
     def gen(text, opts = {})
@@ -81,7 +81,8 @@ module Vocalware
     # Build URL where request will be sent.
     #
     # @param text [String] text to generate speech
-    # @param opts [Hash<Symbol, Object>] options which override client attributes
+    # @param opts [Hash<Symbol, Object>] options which override client
+    #   attributes
     #
     # @return [String] url
     def build_url(text, opts = {})
@@ -103,16 +104,20 @@ module Vocalware
 
       # If response has other status than success
       unless response.status.between?(200, 299)
-        raise RequestError.from_url_and_response(url, response, "Unexpected response status")
+        raise RequestError.from_url_and_response(
+                url, response, "Unexpected response status"
+              )
       end
 
-      # In case of error Vocalware still returns 200 status, but with error
-      # message in response body, instead of audio data.
+      response_body = response.body
+
+      # In case of an error, Vocalware still returns a 200 HTTP status,
+      # but with an error message in the response body, instead of audio data.
       case response.headers['Content-Type']
       when 'audio/mpeg', 'application/x-shockwave-flash'
-        return response.body
+        return response_body
       else
-        raise RequestError.from_url(url, response.body)
+        raise RequestError.from_url(url, response_body)
       end
     rescue Faraday::Error::ConnectionFailed => err
       raise RequestError.from_url(url, err.message)
@@ -127,7 +132,10 @@ module Vocalware
       raise(Error, 'api_id is missing')        unless api_id
       raise(Error, 'account_id is missing')    unless account_id
       raise(Error, 'voice is missing')         unless voice
-      raise(Error, 'voice must be a Vocalware::Voice') unless voice.is_a?(Voice)
+
+      raise(Error,
+            'voice must be a Vocalware::Voice'
+           ) unless voice.is_a?(Voice)
     end
     private :validate!
 

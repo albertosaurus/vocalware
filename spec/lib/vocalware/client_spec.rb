@@ -1,6 +1,6 @@
 require 'spec_helper'
 describe Vocalware::Client do
-  let(:voice) { Vocalware::Voice.find(:name => "Kate") }
+  let(:voice)       { Vocalware::Voice.find(:name => "Kate") }
   let(:http_client) { double(:http_client) }
 
   let(:client) do

@@ -29,23 +29,30 @@ describe Vocalware::Voice do
 
     it 'should raise if no voice found' do
       expect { described_class.find(:lang => 'Toki Pona') }.
-        to raise_error(Vocalware::FindVoiceError, 'No voice found using {:lang=>"Toki Pona"}')
+        to raise_error( Vocalware::FindVoiceError,
+                        'No voice found using {:lang=>"Toki Pona"}' )
     end
 
     it 'should raise error if more than 1 voice found' do
       expect { described_class.find(:lang => :en) }.
-        to raise_error(Vocalware::FindVoiceError, 'More than 1 voice found using {:lang=>:en}')
+        to raise_error( Vocalware::FindVoiceError,
+                        'More than 1 voice found using {:lang=>:en}' )
     end
   end
 
 
 
   describe '#match?' do
-    let(:voice) { described_class.new(:lang => 'en', :name => "Woodie", :engine_id => '3', :voice_id => '101') }
+    let(:voice) { described_class.new(:lang      => 'en',
+                                      :name      => "Woodie",
+                                      :engine_id => '3',
+                                      :voice_id  => '101') }
 
     it 'should return true if attributes match' do
-      voice.match?(:name  => "Woodie").should be_true
-      voice.match?(:lang => 'en', :name => "Woodie", :engine_id => 3).should be_true
+      voice.match?(:name => "Woodie").should be_true
+      voice.match?( :lang      => 'en',
+                    :name      => "Woodie",
+                    :engine_id => 3).should be_true
 
       voice.match?(:lang => 'en', :name => "Mickey").should be_false
     end
