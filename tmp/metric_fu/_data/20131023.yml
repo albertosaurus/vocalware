@@ -1,0 +1,1284 @@
+---
+:cane:
+  :total_violations: 23
+  :violations:
+    :abc_complexity:
+    - :file: lib/vocalware/request.rb
+      :method: Vocalware::Request#checksum
+      :complexity: '17'
+    :line_style:
+    - :line: lib/vocalware/client.rb:72
+      :description: Line is >80 characters (81)
+    - :line: lib/vocalware/client.rb:84
+      :description: Line is >80 characters (81)
+    - :line: lib/vocalware/client.rb:106
+      :description: Line is >80 characters (93)
+    - :line: lib/vocalware/request.rb:22
+      :description: Line is >80 characters (99)
+    - :line: lib/vocalware/voice.rb:10
+      :description: Line is >80 characters (89)
+    - :line: lib/vocalware/voice.rb:19
+      :description: Line is >80 characters (92)
+    - :line: lib/vocalware/voice.rb:46
+      :description: Line is >80 characters (94)
+    - :line: lib/vocalware/voice.rb:47
+      :description: Line is >80 characters (96)
+    - :line: lib/vocalware/voice.rb:72
+      :description: Line is >80 characters (87)
+    - :line: spec/integration/generate_speech_spec.rb:5
+      :description: Line is >80 characters (186)
+    - :line: spec/integration/generate_speech_spec.rb:6
+      :description: Line is >80 characters (166)
+    - :line: spec/integration/generate_speech_spec.rb:7
+      :description: Line is >80 characters (166)
+    - :line: spec/integration/generate_speech_spec.rb:14
+      :description: Line is >80 characters (98)
+    - :line: spec/integration/generate_speech_spec.rb:15
+      :description: Line is >80 characters (90)
+    - :line: spec/integration/generate_speech_spec.rb:16
+      :description: Line is >80 characters (93)
+    - :line: spec/integration/generate_speech_spec.rb:46
+      :description: Line is >80 characters (101)
+    - :line: spec/integration/generate_speech_spec.rb:53
+      :description: Line is >80 characters (85)
+    - :line: spec/lib/vocalware/errors_spec.rb:16
+      :description: Line is >80 characters (100)
+    - :line: spec/lib/vocalware/voice_spec.rb:32
+      :description: Line is >80 characters (94)
+    - :line: spec/lib/vocalware/voice_spec.rb:37
+      :description: Line is >80 characters (95)
+    - :line: spec/lib/vocalware/voice_spec.rb:44
+      :description: Line is >80 characters (112)
+    - :line: spec/lib/vocalware/voice_spec.rb:48
+      :description: Line is >80 characters (84)
+:churn:
+  :changes: []
+  :class_churn: []
+  :method_churn: []
+  :changed_files: []
+  :changed_classes: []
+  :changed_methods: []
+:flay:
+  :total_score: '0'
+  :matches: []
+:flog:
+  :total: 245.97633866358126
+  :average: 10.249014110982552
+  :method_containers:
+  - :name: Vocalware::Request
+    :path: lib/vocalware/request.rb
+    :total_score: 91.33747103190497
+    :highest_score: 38.15783012698705
+    :average_score: 15.222911838650829
+    :methods:
+      Vocalware::Request#checksum:
+        :operators:
+          :assignment: 2.1
+          :[]: 17.1
+          :engine_id: 1.5
+          :to_s: 14.300000000000002
+          :lang_id: 1.5
+          :voice_id: 1.5
+          :join: 1.1
+          :hexdigest: 1.1
+        :score: 38.15783012698705
+        :path: lib/vocalware/request.rb:63
+      Vocalware::Request#params:
+        :operators:
+          :assignment: 1.0
+          :[]: 12.599999999999998
+          :engine_id: 1.2
+          :to_s: 10.0
+          :lang_id: 1.2
+          :voice_id: 1.2
+          :checksum: 1.0
+        :score: 27.218376145538144
+        :path: lib/vocalware/request.rb:41
+      Vocalware::Request#to_url:
+        :operators:
+          :assignment: 2.0
+          :[]: 5.5
+          :branch: 2.2
+          :<<: 3.1
+          :params: 1.4
+          :map: 1.2
+          :escape: 2.6
+          :join: 1.0
+        :score: 15.095694750490948
+        :path: lib/vocalware/request.rb:17
+      Vocalware::Request#validate!:
+        :operators:
+          :branch: 2.1
+          :each: 1.0
+          :params: 1.5
+          :[]: 1.3
+          :empty?: 1.1
+          :raise: 1.2000000000000002
+        :score: 6.451356446515725
+        :path: lib/vocalware/request.rb:29
+      Vocalware::Request#none:
+        :operators:
+          :private: 3.0
+        :score: 3.0
+        :path: 
+      Vocalware::Request#initialize:
+        :operators:
+          :assignment: 1.0
+          :validate!: 1.0
+        :score: 1.4142135623730951
+        :path: lib/vocalware/request.rb:9
+  - :name: Vocalware::Client
+    :path: lib/vocalware/client.rb
+    :total_score: 71.9387244695327
+    :highest_score: 20.383081219482005
+    :average_score: 10.276960638504672
+    :methods:
+      Vocalware::Client#send_request:
+        :operators:
+          :branch: 4.700000000000001
+          :assignment: 2.3000000000000003
+          :get: 1.2000000000000002
+          :status: 1.4000000000000001
+          :lit_fixnum: 0.7000000000000001
+          :between?: 1.2000000000000002
+          :from_url_and_response: 1.5000000000000002
+          :raise: 3.7000000000000006
+          :headers: 1.4000000000000001
+          :[]: 1.2000000000000002
+          :body: 3.1000000000000005
+          :from_url: 2.8000000000000003
+          :message: 1.5
+        :score: 20.383081219482005
+        :path: lib/vocalware/client.rb:101
+      Vocalware::Client#none:
+        :operators:
+          :attr_accessor: 10.0
+          :private: 3.0
+        :score: 13.0
+        :path: 
+      Vocalware::Client#validate!:
+        :operators:
+          :branch: 5.0
+          :secret_phrase: 1.0
+          :raise: 5.5
+          :api_id: 1.0
+          :account_id: 1.0
+          :voice: 2.2
+          :is_a?: 1.0
+        :score: 12.723600119463043
+        :path: lib/vocalware/client.rb:125
+      Vocalware::Client#to_hash:
+        :operators:
+          :host: 1.0
+          :path: 1.0
+          :protocol: 1.0
+          :port: 1.0
+          :account_id: 1.0
+          :api_id: 1.0
+          :secret_phrase: 1.0
+          :voice: 1.0
+          :ext: 1.0
+        :score: 9.0
+        :path: lib/vocalware/client.rb:137
+      Vocalware::Client#initialize:
+        :operators:
+          :assignment: 2.0
+          :branch: 1.0
+          :merge: 1.2
+          :each: 1.0
+          :send: 3.3000000000000003
+          :new: 1.0
+          :validate!: 1.0
+        :score: 7.826237921249264
+        :path: lib/vocalware/client.rb:60
+      Vocalware::Client#build_url:
+        :operators:
+          :assignment: 3.0
+          :to_hash: 1.2
+          :merge: 1.0
+          :strip: 1.0
+          :new: 1.2
+          :to_url: 1.0
+        :score: 6.177378084592201
+        :path: lib/vocalware/client.rb:87
+      Vocalware::Client#gen:
+        :operators:
+          :assignment: 2.0
+          :build_url: 1.0
+          :send_request: 1.0
+        :score: 2.8284271247461903
+        :path: lib/vocalware/client.rb:76
+  - :name: Vocalware::Voice::find
+    :path: lib/vocalware/voice.rb
+    :total_score: 12.990765951243985
+    :highest_score: 12.990765951243985
+    :average_score: 12.990765951243985
+    :methods:
+      Vocalware::Voice::find:
+        :operators:
+          :assignment: 1.0
+          :branch: 3.0
+          :all: 1.2
+          :select: 1.0
+          :match?: 1.1
+          :empty?: 1.0
+          :inspect: 2.6
+          :raise: 2.2
+          :size: 1.2
+          :lit_fixnum: 0.3
+          :>: 1.0
+          :first: 1.0
+        :score: 12.990765951243985
+        :path: lib/vocalware/voice.rb:43
+  - :name: Vocalware::Voice
+    :path: lib/vocalware/voice.rb
+    :total_score: 28.586014972444865
+    :highest_score: 10.149384217774003
+    :average_score: 9.528671657481622
+    :methods:
+      Vocalware::Voice#initialize:
+        :operators:
+          :branch: 2.0
+          :each: 1.0
+          :instance_variable_set: 1.1
+          :assignment: 1.0
+          :lang: 3.0
+          :to_sym: 1.3
+          :[]: 1.1
+          :inspect: 1.3
+          :raise: 1.1
+        :score: 10.149384217774003
+        :path: lib/vocalware/voice.rb:68
+      Vocalware::Voice#match?:
+        :operators:
+          :branch: 2.1
+          :each: 1.0
+          :send: 4.5
+          :to_s: 2.6
+          :!=: 1.1
+        :score: 9.436630754670864
+        :path: lib/vocalware/voice.rb:80
+      Vocalware::Voice#none:
+        :operators:
+          :attr_reader: 7.0
+          :private_class_method: 2.0
+        :score: 9.0
+        :path: 
+  - :name: Vocalware
+    :path: ''
+    :total_score: 10.099999999999998
+    :highest_score: 10.099999999999998
+    :average_score: 10.099999999999998
+    :methods:
+      Vocalware#none:
+        :operators:
+          :expand_path: 1.1
+          :join: 1.1
+          :lit_fixnum: 6.899999999999998
+          :freeze: 1.0
+        :score: 10.099999999999998
+        :path: 
+  - :name: main
+    :path: ''
+    :total_score: 9.899999999999999
+    :highest_score: 9.899999999999999
+    :average_score: 9.899999999999999
+    :methods:
+      main#none:
+        :operators:
+          :require: 9.899999999999999
+        :score: 9.899999999999999
+        :path: 
+  - :name: Vocalware::Voice::load_all
+    :path: lib/vocalware/voice.rb
+    :total_score: 7.561084578286372
+    :highest_score: 7.561084578286372
+    :average_score: 7.561084578286372
+    :methods:
+      Vocalware::Voice::load_all:
+        :operators:
+          :assignment: 2.0
+          :branch: 3.1
+          :lambda: 1.0
+          :strip!: 1.2000000000000002
+          :read: 1.0
+          :map: 1.0
+          :to_hash: 1.3
+          :new: 1.1
+        :score: 7.561084578286372
+        :path: lib/vocalware/voice.rb:55
+  - :name: Vocalware::RequestError::from_url_and_response
+    :path: lib/vocalware/errors.rb
+    :total_score: 6.4
+    :highest_score: 6.4
+    :average_score: 6.4
+    :methods:
+      Vocalware::RequestError::from_url_and_response:
+        :operators:
+          :<<: 3.0
+          :status: 1.2
+          :body: 1.2
+          :new: 1.0
+        :score: 6.4
+        :path: lib/vocalware/errors.rb:29
+  - :name: Vocalware::Voice::all
+    :path: lib/vocalware/voice.rb
+    :total_score: 3.1622776601683795
+    :highest_score: 3.1622776601683795
+    :average_score: 3.1622776601683795
+    :methods:
+      Vocalware::Voice::all:
+        :operators:
+          :assignment: 1.0
+          :send: 3.0
+        :score: 3.1622776601683795
+        :path: lib/vocalware/voice.rb:34
+  - :name: Vocalware::RequestError::from_url
+    :path: lib/vocalware/errors.rb
+    :total_score: 2.0
+    :highest_score: 2.0
+    :average_score: 2.0
+    :methods:
+      Vocalware::RequestError::from_url:
+        :operators:
+          :<<: 1.0
+          :new: 1.0
+        :score: 2.0
+        :path: lib/vocalware/errors.rb:21
+  - :name: Vocalware::RequestError
+    :path: ''
+    :total_score: 2.0
+    :highest_score: 2.0
+    :average_score: 2.0
+    :methods:
+      Vocalware::RequestError#none:
+        :operators:
+          :attr_accessor: 2.0
+        :score: 2.0
+        :path: 
+:saikuro:
+  :files:
+  - :classes:
+    - :class_name: Vocalware
+      :complexity: 0
+      :lines: 19
+      :methods: []
+    - :class_name: Vocalware::Client
+      :complexity: 15
+      :lines: 130
+      :methods:
+      - :name: Vocalware::Client#validate!
+        :complexity: 6
+        :lines: 6
+      - :name: Vocalware::Client#send_request
+        :complexity: 4
+        :lines: 18
+      - :name: Vocalware::Client#initialize
+        :complexity: 2
+        :lines: 7
+      - :name: Vocalware::Client#build_url
+        :complexity: 1
+        :lines: 4
+      - :name: Vocalware::Client#gen
+        :complexity: 1
+        :lines: 3
+      - :name: Vocalware::Client#to_hash
+        :complexity: 1
+        :lines: 10
+    :filename: lib/vocalware/client.rb
+  - :classes:
+    - :class_name: Vocalware
+      :complexity: 0
+      :lines: 9
+      :methods: []
+    - :class_name: Vocalware::Voice
+      :complexity: 14
+      :lines: 77
+      :methods:
+      - :name: Vocalware::Voice#self.load_all
+        :complexity: 4
+        :lines: 8
+      - :name: Vocalware::Voice#self.find
+        :complexity: 4
+        :lines: 7
+      - :name: Vocalware::Voice#match?
+        :complexity: 3
+        :lines: 5
+      - :name: Vocalware::Voice#initialize
+        :complexity: 2
+        :lines: 5
+      - :name: Vocalware::Voice#self.all
+        :complexity: 1
+        :lines: 2
+    :filename: lib/vocalware/voice.rb
+  - :classes:
+    - :class_name: Vocalware
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    - :class_name: Vocalware::Request
+      :complexity: 9
+      :lines: 78
+      :methods:
+      - :name: Vocalware::Request#validate!
+        :complexity: 3
+        :lines: 6
+      - :name: Vocalware::Request#to_url
+        :complexity: 3
+        :lines: 7
+      - :name: Vocalware::Request#checksum
+        :complexity: 1
+        :lines: 17
+      - :name: Vocalware::Request#params
+        :complexity: 1
+        :lines: 14
+      - :name: Vocalware::Request#initialize
+        :complexity: 1
+        :lines: 3
+    :filename: lib/vocalware/request.rb
+  - :classes:
+    - :class_name: Vocalware
+      :complexity: 0
+      :lines: 12
+      :methods: []
+    - :class_name: Vocalware::Error
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Vocalware::FindVoiceError
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Vocalware::RequestError
+      :complexity: 2
+      :lines: 24
+      :methods:
+      - :name: Vocalware::RequestError#self.from_url_and_response
+        :complexity: 1
+        :lines: 5
+      - :name: Vocalware::RequestError#self.from_url
+        :complexity: 1
+        :lines: 3
+    - :class_name: Vocalware::BuildRequestError
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    :filename: lib/vocalware/errors.rb
+  - :classes:
+    - :class_name: Vocalware
+      :complexity: 0
+      :lines: 72
+      :methods: []
+    :filename: lib/vocalware/languages.rb
+  - :classes:
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Vocalware
+      :complexity: 0
+      :lines: 6
+      :methods: []
+    :filename: lib/vocalware.rb
+  :classes:
+  - :name: Vocalware::Client
+    :complexity: 15
+    :lines: 130
+    :defs:
+    - :name: Vocalware::Client#initialize
+      :complexity: 2
+      :lines: 7
+    - :name: Vocalware::Client#gen
+      :complexity: 1
+      :lines: 3
+    - :name: Vocalware::Client#build_url
+      :complexity: 1
+      :lines: 4
+    - :name: Vocalware::Client#send_request
+      :complexity: 4
+      :lines: 18
+    - :name: Vocalware::Client#validate!
+      :complexity: 6
+      :lines: 6
+    - :name: Vocalware::Client#to_hash
+      :complexity: 1
+      :lines: 10
+  - :name: Vocalware::Voice
+    :complexity: 14
+    :lines: 77
+    :defs:
+    - :name: Vocalware::Voice#self.all
+      :complexity: 1
+      :lines: 2
+    - :name: Vocalware::Voice#self.find
+      :complexity: 4
+      :lines: 7
+    - :name: Vocalware::Voice#self.load_all
+      :complexity: 4
+      :lines: 8
+    - :name: Vocalware::Voice#initialize
+      :complexity: 2
+      :lines: 5
+    - :name: Vocalware::Voice#match?
+      :complexity: 3
+      :lines: 5
+  - :name: Vocalware::Request
+    :complexity: 9
+    :lines: 78
+    :defs:
+    - :name: Vocalware::Request#initialize
+      :complexity: 1
+      :lines: 3
+    - :name: Vocalware::Request#to_url
+      :complexity: 3
+      :lines: 7
+    - :name: Vocalware::Request#validate!
+      :complexity: 3
+      :lines: 6
+    - :name: Vocalware::Request#params
+      :complexity: 1
+      :lines: 14
+    - :name: Vocalware::Request#checksum
+      :complexity: 1
+      :lines: 17
+  - :name: Vocalware::RequestError
+    :complexity: 2
+    :lines: 24
+    :defs:
+    - :name: Vocalware::RequestError#self.from_url
+      :complexity: 1
+      :lines: 3
+    - :name: Vocalware::RequestError#self.from_url_and_response
+      :complexity: 1
+      :lines: 5
+  - :name: Vocalware::Error
+    :complexity: 0
+    :lines: 1
+  - :name: Vocalware::FindVoiceError
+    :complexity: 0
+    :lines: 1
+  - :name: Vocalware::BuildRequestError
+    :complexity: 0
+    :lines: 1
+  - :name: Vocalware
+    :complexity: 0
+    :lines: 12
+  - :name: Vocalware
+    :complexity: 0
+    :lines: 72
+  - :name: Vocalware
+    :complexity: 0
+    :lines: 4
+  - :name: ''
+    :complexity: 0
+    :lines: 1
+  - :name: Vocalware
+    :complexity: 0
+    :lines: 9
+  - :name: Vocalware
+    :complexity: 0
+    :lines: 6
+  - :name: Vocalware
+    :complexity: 0
+    :lines: 19
+  :methods:
+  - :name: Vocalware::Client#validate!
+    :complexity: 6
+    :lines: 6
+  - :name: Vocalware::Client#send_request
+    :complexity: 4
+    :lines: 18
+  - :name: Vocalware::Voice#self.find
+    :complexity: 4
+    :lines: 7
+  - :name: Vocalware::Voice#self.load_all
+    :complexity: 4
+    :lines: 8
+  - :name: Vocalware::Voice#match?
+    :complexity: 3
+    :lines: 5
+  - :name: Vocalware::Request#to_url
+    :complexity: 3
+    :lines: 7
+  - :name: Vocalware::Request#validate!
+    :complexity: 3
+    :lines: 6
+  - :name: Vocalware::Client#initialize
+    :complexity: 2
+    :lines: 7
+  - :name: Vocalware::Voice#initialize
+    :complexity: 2
+    :lines: 5
+  - :name: Vocalware::Request#initialize
+    :complexity: 1
+    :lines: 3
+  - :name: Vocalware::Request#params
+    :complexity: 1
+    :lines: 14
+  - :name: Vocalware::Voice#self.all
+    :complexity: 1
+    :lines: 2
+  - :name: Vocalware::Client#to_hash
+    :complexity: 1
+    :lines: 10
+  - :name: Vocalware::Request#checksum
+    :complexity: 1
+    :lines: 17
+  - :name: Vocalware::RequestError#self.from_url
+    :complexity: 1
+    :lines: 3
+  - :name: Vocalware::Client#build_url
+    :complexity: 1
+    :lines: 4
+  - :name: Vocalware::Client#gen
+    :complexity: 1
+    :lines: 3
+  - :name: Vocalware::RequestError#self.from_url_and_response
+    :complexity: 1
+    :lines: 5
+:reek:
+  :matches:
+  - :file_path: lib/vocalware.rb
+    :code_smells: []
+  - :file_path: lib/vocalware/client.rb
+    :code_smells:
+    - :method: Vocalware::Client#send_request
+      :message: calls response.body twice
+      :type: DuplicateMethodCall
+  - :file_path: lib/vocalware/errors.rb
+    :code_smells: []
+  - :file_path: lib/vocalware/languages.rb
+    :code_smells: []
+  - :file_path: lib/vocalware/request.rb
+    :code_smells:
+    - :method: Vocalware::Request#checksum
+      :message: calls @attrs[:voice] 3 times
+      :type: DuplicateMethodCall
+    - :method: Vocalware::Request#params
+      :message: calls @attrs[:voice] 3 times
+      :type: DuplicateMethodCall
+    - :method: Vocalware::Request#to_url
+      :message: calls @attrs[:port] twice
+      :type: DuplicateMethodCall
+  - :file_path: lib/vocalware/voice.rb
+    :code_smells:
+    - :method: Vocalware::Voice#self.find
+      :message: calls attrs.inspect twice
+      :type: DuplicateMethodCall
+:roodi:
+  :total:
+  - Found 0 errors.
+  :problems: []
+:stats:
+  :codeLOC: 234
+  :testLOC: 172
+  :code_to_test_ratio: 0.7
+  :lines:
+  - :name: Libraries
+    :lines: 457
+    :loc: 234
+    :classes: 7
+    :methods: 18
+    :methods_per_class: 2
+    :loc_per_method: 11
+  - :name: Integration specs
+    :lines: 55
+    :loc: 46
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Vocalware specs
+    :lines: 148
+    :loc: 126
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Total
+    :lines: 660
+    :loc: 406
+    :classes: 7
+    :methods: 18
+    :methods_per_class: 2
+    :loc_per_method: 20
+:hotspots:
+  files:
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/request.rb:63
+      file_name: lib/vocalware/request.rb
+      line_number: '63'
+      hash_key: '["lib/vocalware/request.rb:63", nil, nil]'
+    details:
+      flog: complexity is 38.2
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/request.rb:41
+      file_name: lib/vocalware/request.rb
+      line_number: '41'
+      hash_key: '["lib/vocalware/request.rb:41", nil, nil]'
+    details:
+      flog: complexity is 27.2
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb:101
+      file_name: lib/vocalware/client.rb
+      line_number: '101'
+      hash_key: '["lib/vocalware/client.rb:101", nil, nil]'
+    details:
+      flog: complexity is 20.4
+      saikuro: complexity is 4.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb:125
+      file_name: lib/vocalware/client.rb
+      line_number: '125'
+      hash_key: '["lib/vocalware/client.rb:125", nil, nil]'
+    details:
+      flog: complexity is 12.7
+      saikuro: complexity is 6.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/request.rb:17
+      file_name: lib/vocalware/request.rb
+      line_number: '17'
+      hash_key: '["lib/vocalware/request.rb:17", nil, nil]'
+    details:
+      flog: complexity is 15.1
+      saikuro: complexity is 3.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/voice.rb:43
+      file_name: lib/vocalware/voice.rb
+      line_number: '43'
+      hash_key: '["lib/vocalware/voice.rb:43", nil, nil]'
+    details:
+      flog: complexity is 13.0
+      saikuro: average complexity is 3.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/voice.rb:80
+      file_name: lib/vocalware/voice.rb
+      line_number: '80'
+      hash_key: '["lib/vocalware/voice.rb:80", nil, nil]'
+    details:
+      flog: complexity is 9.4
+      saikuro: complexity is 3.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/voice.rb:68
+      file_name: lib/vocalware/voice.rb
+      line_number: '68'
+      hash_key: '["lib/vocalware/voice.rb:68", nil, nil]'
+    details:
+      flog: complexity is 10.1
+      saikuro: complexity is 2.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb:137
+      file_name: lib/vocalware/client.rb
+      line_number: '137'
+      hash_key: '["lib/vocalware/client.rb:137", nil, nil]'
+    details:
+      flog: complexity is 9.0
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb:60
+      file_name: lib/vocalware/client.rb
+      line_number: '60'
+      hash_key: '["lib/vocalware/client.rb:60", nil, nil]'
+    details:
+      flog: complexity is 7.8
+      saikuro: complexity is 2.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/request.rb:29
+      file_name: lib/vocalware/request.rb
+      line_number: '29'
+      hash_key: '["lib/vocalware/request.rb:29", nil, nil]'
+    details:
+      flog: complexity is 6.5
+      saikuro: complexity is 3.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/voice.rb:55
+      file_name: lib/vocalware/voice.rb
+      line_number: '55'
+      hash_key: '["lib/vocalware/voice.rb:55", nil, nil]'
+    details:
+      flog: complexity is 7.6
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/errors.rb:29
+      file_name: lib/vocalware/errors.rb
+      line_number: '29'
+      hash_key: '["lib/vocalware/errors.rb:29", nil, nil]'
+    details:
+      flog: complexity is 6.4
+      saikuro: average complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb:87
+      file_name: lib/vocalware/client.rb
+      line_number: '87'
+      hash_key: '["lib/vocalware/client.rb:87", nil, nil]'
+    details:
+      flog: complexity is 6.2
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb:76
+      file_name: lib/vocalware/client.rb
+      line_number: '76'
+      hash_key: '["lib/vocalware/client.rb:76", nil, nil]'
+    details:
+      flog: complexity is 2.8
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/voice.rb:34
+      file_name: lib/vocalware/voice.rb
+      line_number: '34'
+      hash_key: '["lib/vocalware/voice.rb:34", nil, nil]'
+    details:
+      flog: complexity is 3.2
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/request.rb:9
+      file_name: lib/vocalware/request.rb
+      line_number: '9'
+      hash_key: '["lib/vocalware/request.rb:9", nil, nil]'
+    details:
+      flog: complexity is 1.4
+      saikuro: complexity is 1.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/errors.rb:21
+      file_name: lib/vocalware/errors.rb
+      line_number: '21'
+      hash_key: '["lib/vocalware/errors.rb:21", nil, nil]'
+    details:
+      flog: complexity is 2.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/request.rb
+      file_name: lib/vocalware/request.rb
+      line_number: 
+      hash_key: '["lib/vocalware/request.rb", nil, nil]'
+    details:
+      reek: found 3 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/client.rb
+      file_name: lib/vocalware/client.rb
+      line_number: 
+      hash_key: '["lib/vocalware/client.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/vocalware/voice.rb
+      file_name: lib/vocalware/voice.rb
+      line_number: 
+      hash_key: '["lib/vocalware/voice.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  classes:
+  - location:
+      class_name: Request
+      method_name: 
+      file_path: lib/vocalware/request.rb:63
+      file_name: lib/vocalware/request.rb
+      line_number: '63'
+      hash_key: '["lib/vocalware/request.rb:63", "Request", nil]'
+    details:
+      flog: average complexity is 15.2
+      reek: found 3 code smells
+      saikuro: average complexity is 1.8
+  - location:
+      class_name: Client
+      method_name: 
+      file_path: lib/vocalware/client.rb:101
+      file_name: lib/vocalware/client.rb
+      line_number: '101'
+      hash_key: '["lib/vocalware/client.rb:101", "Client", nil]'
+    details:
+      flog: average complexity is 10.3
+      reek: found 1 code smells
+      saikuro: average complexity is 2.5
+  - location:
+      class_name: find
+      method_name: 
+      file_path: lib/vocalware/voice.rb:43
+      file_name: lib/vocalware/voice.rb
+      line_number: '43'
+      hash_key: '["lib/vocalware/voice.rb:43", "find", nil]'
+    details:
+      flog: complexity is 13.0
+  - location:
+      class_name: Voice
+      method_name: 
+      file_path: lib/vocalware/voice.rb:68
+      file_name: lib/vocalware/voice.rb
+      line_number: '68'
+      hash_key: '["lib/vocalware/voice.rb:68", "Voice", nil]'
+    details:
+      flog: average complexity is 9.5
+      saikuro: average complexity is 2.8
+  - location:
+      class_name: Vocalware
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Vocalware", nil]'
+    details:
+      flog: complexity is 10.1
+  - location:
+      class_name: main
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "main", nil]'
+    details:
+      flog: complexity is 9.9
+  - location:
+      class_name: load_all
+      method_name: 
+      file_path: lib/vocalware/voice.rb:55
+      file_name: lib/vocalware/voice.rb
+      line_number: '55'
+      hash_key: '["lib/vocalware/voice.rb:55", "load_all", nil]'
+    details:
+      flog: complexity is 7.6
+  - location:
+      class_name: from_url_and_response
+      method_name: 
+      file_path: lib/vocalware/errors.rb:29
+      file_name: lib/vocalware/errors.rb
+      line_number: '29'
+      hash_key: '["lib/vocalware/errors.rb:29", "from_url_and_response", nil]'
+    details:
+      flog: complexity is 6.4
+  - location:
+      class_name: all
+      method_name: 
+      file_path: lib/vocalware/voice.rb:34
+      file_name: lib/vocalware/voice.rb
+      line_number: '34'
+      hash_key: '["lib/vocalware/voice.rb:34", "all", nil]'
+    details:
+      flog: complexity is 3.2
+  - location:
+      class_name: RequestError
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "RequestError", nil]'
+    details:
+      flog: complexity is 2.0
+      saikuro: average complexity is 1.0
+  - location:
+      class_name: from_url
+      method_name: 
+      file_path: lib/vocalware/errors.rb:21
+      file_name: lib/vocalware/errors.rb
+      line_number: '21'
+      hash_key: '["lib/vocalware/errors.rb:21", "from_url", nil]'
+    details:
+      flog: complexity is 2.0
+  - location:
+      class_name: Voice#self
+      method_name: 
+      file_path: lib/vocalware/voice.rb
+      file_name: lib/vocalware/voice.rb
+      line_number: 
+      hash_key: '["lib/vocalware/voice.rb", "Voice#self", nil]'
+    details:
+      reek: found 1 code smells
+  methods:
+  - location:
+      class_name: Request
+      method_name: Request#checksum
+      file_path: lib/vocalware/request.rb:63
+      file_name: lib/vocalware/request.rb
+      line_number: '63'
+      hash_key: '["lib/vocalware/request.rb:63", "Request", "Request#checksum"]'
+      simple_method_name: '#checksum'
+    details:
+      flog: complexity is 38.2
+      reek: found 1 code smells
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Request
+      method_name: Request#params
+      file_path: lib/vocalware/request.rb:41
+      file_name: lib/vocalware/request.rb
+      line_number: '41'
+      hash_key: '["lib/vocalware/request.rb:41", "Request", "Request#params"]'
+      simple_method_name: '#params'
+    details:
+      flog: complexity is 27.2
+      reek: found 1 code smells
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Client
+      method_name: Client#send_request
+      file_path: lib/vocalware/client.rb:101
+      file_name: lib/vocalware/client.rb
+      line_number: '101'
+      hash_key: '["lib/vocalware/client.rb:101", "Client", "Client#send_request"]'
+      simple_method_name: '#send_request'
+    details:
+      flog: complexity is 20.4
+      reek: found 1 code smells
+      saikuro: complexity is 4.0
+  - location:
+      class_name: Client
+      method_name: Client#validate!
+      file_path: lib/vocalware/client.rb:125
+      file_name: lib/vocalware/client.rb
+      line_number: '125'
+      hash_key: '["lib/vocalware/client.rb:125", "Client", "Client#validate!"]'
+      simple_method_name: '#validate!'
+    details:
+      flog: complexity is 12.7
+      saikuro: complexity is 6.0
+  - location:
+      class_name: Request
+      method_name: Request#to_url
+      file_path: lib/vocalware/request.rb:17
+      file_name: lib/vocalware/request.rb
+      line_number: '17'
+      hash_key: '["lib/vocalware/request.rb:17", "Request", "Request#to_url"]'
+      simple_method_name: '#to_url'
+    details:
+      flog: complexity is 15.1
+      reek: found 1 code smells
+      saikuro: complexity is 3.0
+  - location:
+      class_name: Client
+      method_name: Client#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Client", "Client#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 13.0
+  - location:
+      class_name: Voice
+      method_name: Voice#match?
+      file_path: lib/vocalware/voice.rb:80
+      file_name: lib/vocalware/voice.rb
+      line_number: '80'
+      hash_key: '["lib/vocalware/voice.rb:80", "Voice", "Voice#match?"]'
+      simple_method_name: '#match?'
+    details:
+      flog: complexity is 9.4
+      saikuro: complexity is 3.0
+  - location:
+      class_name: Voice
+      method_name: Voice#initialize
+      file_path: lib/vocalware/voice.rb:68
+      file_name: lib/vocalware/voice.rb
+      line_number: '68'
+      hash_key: '["lib/vocalware/voice.rb:68", "Voice", "Voice#initialize"]'
+      simple_method_name: '#initialize'
+    details:
+      flog: complexity is 10.1
+      saikuro: complexity is 2.0
+  - location:
+      class_name: Vocalware
+      method_name: Vocalware#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Vocalware", "Vocalware#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 10.1
+  - location:
+      class_name: Client
+      method_name: Client#to_hash
+      file_path: lib/vocalware/client.rb:137
+      file_name: lib/vocalware/client.rb
+      line_number: '137'
+      hash_key: '["lib/vocalware/client.rb:137", "Client", "Client#to_hash"]'
+      simple_method_name: '#to_hash'
+    details:
+      flog: complexity is 9.0
+      saikuro: complexity is 1.0
+  - location:
+      class_name: main
+      method_name: main#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "main", "main#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 9.9
+  - location:
+      class_name: Client
+      method_name: Client#initialize
+      file_path: lib/vocalware/client.rb:60
+      file_name: lib/vocalware/client.rb
+      line_number: '60'
+      hash_key: '["lib/vocalware/client.rb:60", "Client", "Client#initialize"]'
+      simple_method_name: '#initialize'
+    details:
+      flog: complexity is 7.8
+      saikuro: complexity is 2.0
+  - location:
+      class_name: Request
+      method_name: Request#validate!
+      file_path: lib/vocalware/request.rb:29
+      file_name: lib/vocalware/request.rb
+      line_number: '29'
+      hash_key: '["lib/vocalware/request.rb:29", "Request", "Request#validate!"]'
+      simple_method_name: '#validate!'
+    details:
+      flog: complexity is 6.5
+      saikuro: complexity is 3.0
+  - location:
+      class_name: Voice
+      method_name: Voice#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Voice", "Voice#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 9.0
+  - location:
+      class_name: Client
+      method_name: Client#build_url
+      file_path: lib/vocalware/client.rb:87
+      file_name: lib/vocalware/client.rb
+      line_number: '87'
+      hash_key: '["lib/vocalware/client.rb:87", "Client", "Client#build_url"]'
+      simple_method_name: '#build_url'
+    details:
+      flog: complexity is 6.2
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Voice#self
+      method_name: Voice#self.find
+      file_path: lib/vocalware/voice.rb
+      file_name: lib/vocalware/voice.rb
+      line_number: 
+      hash_key: '["lib/vocalware/voice.rb", "Voice#self", "Voice#self.find"]'
+      simple_method_name: .find
+    details:
+      reek: found 1 code smells
+      saikuro: complexity is 4.0
+  - location:
+      class_name: Voice
+      method_name: Voice#self.load_all
+      file_path: lib/vocalware/voice.rb:43
+      file_name: lib/vocalware/voice.rb
+      line_number: '43'
+      hash_key: '["lib/vocalware/voice.rb:43", "Voice", "Voice#self.load_all"]'
+      simple_method_name: '#self.load_all'
+    details:
+      saikuro: complexity is 4.0
+  - location:
+      class_name: Client
+      method_name: Client#gen
+      file_path: lib/vocalware/client.rb:76
+      file_name: lib/vocalware/client.rb
+      line_number: '76'
+      hash_key: '["lib/vocalware/client.rb:76", "Client", "Client#gen"]'
+      simple_method_name: '#gen'
+    details:
+      flog: complexity is 2.8
+      saikuro: complexity is 1.0
+  - location:
+      class_name: Request
+      method_name: Request#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Request", "Request#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 3.0
+  - location:
+      class_name: Request
+      method_name: Request#initialize
+      file_path: lib/vocalware/request.rb:9
+      file_name: lib/vocalware/request.rb
+      line_number: '9'
+      hash_key: '["lib/vocalware/request.rb:9", "Request", "Request#initialize"]'
+      simple_method_name: '#initialize'
+    details:
+      flog: complexity is 1.4
+      saikuro: complexity is 1.0
+  - location:
+      class_name: RequestError
+      method_name: RequestError#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "RequestError", "RequestError#none"]'
+      simple_method_name: '#none'
+    details:
+      flog: complexity is 2.0
+  - location:
+      class_name: Voice
+      method_name: Voice#self.all
+      file_path: lib/vocalware/voice.rb:43
+      file_name: lib/vocalware/voice.rb
+      line_number: '43'
+      hash_key: '["lib/vocalware/voice.rb:43", "Voice", "Voice#self.all"]'
+      simple_method_name: '#self.all'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: RequestError
+      method_name: RequestError#self.from_url_and_response
+      file_path: lib/vocalware/errors.rb:29
+      file_name: lib/vocalware/errors.rb
+      line_number: '29'
+      hash_key: '["lib/vocalware/errors.rb:29", "RequestError", "RequestError#self.from_url_and_response"]'
+      simple_method_name: '#self.from_url_and_response'
+    details:
+      saikuro: complexity is 1.0
+  - location:
+      class_name: RequestError
+      method_name: RequestError#self.from_url
+      file_path: lib/vocalware/errors.rb:29
+      file_name: lib/vocalware/errors.rb
+      line_number: '29'
+      hash_key: '["lib/vocalware/errors.rb:29", "RequestError", "RequestError#self.from_url"]'
+      simple_method_name: '#self.from_url'
+    details:
+      saikuro: complexity is 1.0
