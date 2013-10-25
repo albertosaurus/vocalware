@@ -1,5 +1,7 @@
 # Vocalware
 
+[![Build Status](https://travis-ci.org/TMXCredit/vocalware.png?branch=master)](https://travis-ci.org/TMXCredit/vocalware)
+
 Ruby client for the [Vocalware](https://www.vocalware.com/) REST API.
 
 ## Install
